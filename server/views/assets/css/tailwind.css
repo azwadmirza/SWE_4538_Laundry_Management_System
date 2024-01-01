@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar for all elements */
+*::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #0077b7;
+  border-radius: 5px;
+}
+
+:root {
+  --blue1: #0077b7;
+  --blue2: #03045e;
+  --blue3: #00b4d8;
+  --blue4: #90e0b5;
+  --blue5: #171a1a;
+  --blue6: #e7f8fb;
+}

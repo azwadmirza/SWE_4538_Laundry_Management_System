@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Profile</title>
+    <script>
+        fetch('/api/customer-profile', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`, // Include the JWT token here
+            },
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Request failed with status: ${response.status}`);
+                }
+                return response.json(); // Parse the response body as JSON
+            })
+            .then((data)=>{
+                document.getElementById('image').src=data.profilePicture;
+                document.getElementById('username').innerText=data.username;
+                document.getElementById('email').innerText=data.email;
+                document.getElementById('phone-number').innerText=data.phoneNumber;
+            })
+            .catch((error) => {
+                console.error('Profile request failed:', error);
+                window.location.href="/";
+            });
+    </script>
+
+</head>
+
+<body>
+    <h1>Customer Profile</h1>
+    <div>
+        <img id="image"  alt="Profile Picture">
+        <h2 id="username"></h2>
+        <p id="email"></p>
+        <p id="phone-number"></p>
+    </div>
+</body>
+
+</html>

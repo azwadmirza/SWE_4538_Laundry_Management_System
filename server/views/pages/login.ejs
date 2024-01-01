@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Login</h1>
+
+    <form id="login-form" action="/api/login" method="POST">
+        <label for="type">Choose a role:</label><br>
+        <input type="radio" id="manager" name="type" value="manager" required>
+        <label for="manager">Manager</label><br>
+        <input type="radio" id="customer" name="type" value="customer" required>
+        <label for="customer">Customer</label><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+         
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <input type="submit" value="Login">
+    </form>
+</body>
+<script defer type="text/javascript">
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('login-form');
+
+    loginForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(loginForm);
+
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                body: JSON.stringify(Object.fromEntries(formData)),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                localStorage.setItem('token', data.token);
+                window.location.href = data.redirectTo;
+            } else {
+                console.log('Authentication failed:', data.error);
+            }
+        } catch (error) {
+            console.error('Login failed:', error);
+        }
+    });
+});
+</script>
+</html>

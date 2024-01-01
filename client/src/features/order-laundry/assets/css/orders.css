@@ -1,0 +1,73 @@
+.custom-width-orders{
+  width:75%;
+}
+
+.my-orders{
+  width:100%;
+  margin-top: 5%;
+}
+
+.custom-button-width{
+  width:50%;
+}
+
+.modal-header-order{
+  background-color: var(--customDarkBlue);
+  color: whitesmoke;
+}
+
+
+@media(max-width:1375px){
+  .my-orders{
+    margin-top: 7%;
+  }
+}
+
+@media(max-width:954px){
+  .my-orders{
+    margin-top: 9%;
+  }
+  .custom-button-width{
+    width:100%;
+  }
+}
+
+@media(max-width:743px){
+  .my-orders{
+    margin-top: 11%;
+  }
+  .custom-width-orders{
+    width: 100%;
+  }
+  
+}
+
+@media(max-width:595px){
+  .my-orders{
+    margin-top: 14%;
+  }
+}
+
+.order-card-header{
+  background-color: var(--customMagenta);
+  color:whitesmoke;
+}
+
+
+@media(max-width:471px){
+  .my-orders{
+    margin-top: 17%;
+  }
+}
+
+@media(max-width:393px){
+  .my-orders{
+    margin-top: 20%;
+  }
+}
+
+@media(max-width:330px){
+  .my-orders{
+    margin-top: 24%;
+  }
+}

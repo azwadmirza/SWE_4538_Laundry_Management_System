@@ -1,0 +1,318 @@
+.add{
+  background-color: var(--customDarkBlue);
+  border:none;
+  color:whitesmoke;
+  border-radius: 50%;
+}
+
+.add:hover{
+  background-color: var(--customMagenta) !important;
+}
+
+.sub{
+  margin-left: 2px;
+  background-color: #8B0000;
+  border:none !important;
+  color:whitesmoke;
+  border-radius: 50%;
+}
+
+.medicine-details tr{
+  border:none;
+}
+
+.medicine-details td{
+  border:none;
+}
+
+.modal-details p{
+  font-size: 16px;
+}
+
+.modal-fields{
+  color:var(--customMagenta);
+}
+
+.price{
+  color:#8B0000;
+  font-size: 20px;
+}
+
+.modal-body-details{
+  max-height: 450px;
+  overflow-y: scroll;
+  overflow-x: hidden;;
+}
+
+.image-details{
+  border-radius: 50%;
+  margin-top: 25%;
+}
+
+.image-filename{
+  color:whitesmoke;
+  background-color: var(--customBlue);
+  border-radius: 25px;
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: x-small;
+}
+
+.sub:disabled{
+  opacity: 0.5;
+}
+
+.sub:hover{
+  background-color: #FE0F22;
+}
+
+.add:disabled{
+  opacity: 0.5;
+}
+
+.add:hover:disabled{
+  background-color: var(--customDarkBlue);
+}
+
+.medicine-details-modal{
+  max-height:500px !important;
+  overflow-y: scroll;
+}
+
+.wrapper ol,
+.wrapper ul {
+  list-style: none;
+}
+
+.table {
+  max-width: 90%;
+  margin: 50px auto;
+  box-shadow: 0 0.15rem 1.75rem rgba(33, 40, 50, 0.15);
+  border-radius: 12px;
+}
+
+.table .top-title {
+  background-color: var(--darkpurple);
+  border-bottom: 1px solid rgba(33, 40, 50, 0.03);
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  padding: 1rem 1.35rem;
+}
+
+.top-title h2 {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.table .first-line {
+  display: grid;
+  align-items: center;
+}
+
+.view-more-orders {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  margin-top: 2%;
+}
+
+.table .first-line .view-details {
+  max-width: max-content;
+  padding: 8px;
+  border-radius: 7px;
+  background: var(--white);
+  color: var(--darkpurple);
+  font-size: 16px;
+  border: 1px solid var(--darkpurple);
+  margin: auto 10px;
+  cursor: pointer;
+  justify-self: end;
+}
+
+.table .first-line .view-details:hover {
+  background: var(--darkpurple);
+  color: var(--white);
+  border: 1px solid var(--darkpurple);
+}
+
+.wrap-content {
+  padding: 1.2rem;
+  width: 100%;
+}
+
+.wrap-content.dashboard-wrap-content .wrap-item{
+  cursor:default;
+}
+
+.search {
+  border: 1px solid #ccc;
+  margin: 20px 20px 10px;
+  width: 100%;
+  padding: 10px 15px;
+  max-width: 320px;
+  outline: none;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: 0.2s ease-in-out;
+  color: var(--darkpurple);
+}
+
+.search:hover,
+.search:focus {
+  transition: 0.2s ease-in-out;
+  border: 1px solid var(--lightpurple);
+}
+
+.search::placeholder {
+  color: var(--black2);
+  font-size: 14px;
+}
+
+/* Firefox */
+.search {
+  --moz-appearance: textfield;
+}
+
+.wrap-title {
+  padding: 10px 0;
+}
+
+.wrap-title .id,
+.wrap-title .payment,
+.wrap-title .status,
+.wrap-title .progress,
+.wrap-title .progress-header,
+.wrap-title .laundry-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--darkpurple);
+}
+
+.wrap-title .status {
+  text-align: end;
+  margin-right: 8%;
+}
+
+.wrap-title {
+  border-bottom: 1px solid #000;
+}
+
+.wrap-item {
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(143, 140, 140, 0.24);
+  border-radius: 12px;
+}
+
+.wrap-item:nth-child(odd) {
+  background-color: var(--gray);
+}
+
+.wrap-item .id {
+  font-size: 18px;
+  color: var(--black2);
+  font-weight: bold;
+}
+
+.id {
+  padding: 0 10px;
+}
+
+.wrap-item .payment,
+.wrap-item .status,
+.wrap-item .order-progress,
+.wrap-item .laundry-name {
+  font-size: 18px;
+}
+
+.wrap-item .status {
+  text-align: end;
+  margin-right: 5%;
+}
+
+.wrap-item .payment,
+.wrap-item .laundry-name {
+  display: flex;
+  align-items: center;
+}
+
+.wrap-item .order-progress {
+  padding: 0 12px;
+}
+
+.wrap-item .order-progress .progress-text {
+  margin-left: 34%;
+  width: 100%;
+  font-size: 14px;
+}
+
+.progress-done {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: repeating-linear-gradient(
+    to left,
+    var(--darkpurple),
+    var(--lightpurple)
+  );
+  /* background-color: var(--darkpurple); */
+  box-shadow: 0 5px 5px -6px var(--black1), 0 5px 5px var(--black2);
+  border-radius: 20px;
+  height: 100%;
+  width: 0;
+  transition: 1s ease 0.3s;
+}
+
+.status.completed {
+  padding: 2px 4px;
+  background: #8de02c;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.status.cancelled {
+  padding: 2px 4px;
+  background: red;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.status.pending {
+  padding: 2px 4px;
+  background: #e9b10a;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.status.processing {
+  padding: 2px 4px;
+  background: #1795ce;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.orderDetails .edit-order-btn,
+.place-order-btn .add-order {
+  background: var(--white);
+  color: var(--darkpurple);
+  border: 1px solid var(--darkpurple);
+  outline: none;
+  transition: 0.2s ease-in-out;
+  max-width: fit-content;
+  line-height: 0;
+  padding: 10px 20px;
+  border-radius: 7px;
+}
+
+.orderDetails .edit-order-btn:hover,
+.place-order-btn .add-order:hover {
+  background: var(--darkpurple);
+  color: var(--white);
+}
