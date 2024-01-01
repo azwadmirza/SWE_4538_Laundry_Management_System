@@ -1,0 +1,244 @@
+.laundry-details-container{
+  width:100% !important;
+  height:100vh !important;
+}
+
+.laundry-details-content{
+  margin-top:5rem;
+  margin-left:5%;
+    margin-bottom: 2%;
+    width:90%;
+}
+
+.pharmacy-laundry-details-card {
+  width: 75%;
+  height: 20%;
+  background-color: white !important;
+  box-shadow: 0px 10px 40px -10px rgba(57, 57, 57, 0.3);
+}
+.pharmacy-laundry-details-card-header {
+  background-color: var(--customMagenta) !important;
+}
+.order-prescription-pharmacy-card {
+  width: 300px !important;
+  height: 380px !important;
+  background-color: var(--customMagenta) !important;
+  color: white !important;
+  border-color: white !important;
+  transition: transform 0.3s ease-in-out !important;
+}
+.order-prescription-pharmacy-card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.order-prescription-pharmacy-footer {
+  background-color: var(--customBlue) !important;
+}
+
+.laundry-details-header {
+  width: 100% !important;
+  height:10% !important;
+  display: flexbox;
+  margin-top: 6%;
+  margin-bottom:1% !important;
+  background-color: white;
+}
+
+.laundry-details-cards{
+  margin-left:5%;
+}
+
+.laundry-details-searchbar {
+  margin-top:0% !important;
+  height:10% !important;
+  width: 100% !important;
+  margin-bottom:1% !important;
+  display: flex;
+}
+
+.filter {
+  margin-top: 50%;
+  border: 2px solid var(--customBlue);
+  color: var(--customBlue);
+  background-color: whitesmoke;
+  border-radius: 10%;
+  width:100%;
+}
+
+.header-color-modal{
+  background-color: var(--customDarkBlue);
+  color:whitesmoke !important;
+}
+
+.card-header-review{
+  background-color: var(--customMagenta) !important;
+  color:whitesmoke !important;
+}
+
+.card-header-personal-review{
+  background-color: var(--customDarkBlue) !important;
+  color:whitesmoke !important;
+}
+.card-header-average-review{
+  background-color: var(--customBlue) !important;
+  color:whitesmoke !important;
+}
+
+.review-container{
+  width:100%;
+  margin-bottom: 5% !important;
+}
+
+.card-review{
+  margin-left:5%;
+  margin-top:2%;
+  margin-bottom: 2%;
+  width:90%;
+}
+
+.filter:hover{
+  border: 2px solid whitesmoke;
+  color: whitesmoke;
+  background-color: var(--customBlue);
+}
+
+.laundry-details-filter{
+  margin-left:2%;
+  height: 100%;
+  width:2.5%;
+  display: flex;
+}
+
+.laundry-details-card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.laundry-details-card {
+  width: 250px !important;
+  height: 200 !important;
+  background-color: var(--customMagenta) !important;
+  border-color: white !important;
+  color:whitesmoke;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 10px 40px -10px rgba(57, 57, 57, 0.5);
+  transition: transform 0.3s ease-in-out !important;
+}
+
+.laundry-details-card-image {
+  width: 250px !important;
+  height: 200px !important;
+  object-fit: cover !important;
+}
+
+.personal-review-image{
+  border-radius: 50%;
+  margin-right: 2%;
+}
+
+.review-image{
+  border-radius: 50%;
+  margin-right: 2%;
+}
+
+.review{
+  border: 1px solid var(--customDarkBlue);
+  box-shadow: 1px 1px whitesmoke;
+  margin: 2px 15px 10px;
+  width: 98%;
+  border-radius: 25px;
+}
+
+.edit-review-btn{
+  background-color:whitesmoke;
+  border:var(--customDarkBlue);
+  color:var(--customDarkBlue);
+  border-radius: 25px;
+  float:right;
+}
+
+.edit-review-btn:hover{
+  background-color:var(--customBlue);
+  border:whitesmoke;
+  color:whitesmoke;
+}
+
+.edit-average-review-btn{
+  background-color:whitesmoke;
+  border:var(--customBlue);
+  color:var(--customBlue);
+  border-radius: 25px;
+  float:right;
+}
+
+.edit-average-review-btn:hover{
+  background-color:var(--customDarkBlue);
+  border:whitesmoke;
+  color:whitesmoke;
+}
+
+.review-comment{
+  margin-left:10px;
+}
+
+.editor{
+  width:100%;
+  height:200px;
+}
+
+
+@media(max-width: 768px) {
+
+  .laundry-details-header{
+    width:100% !important;
+  }
+  .laundry-details-searchbar{
+    width:90% !important;
+  }
+  .laundry-details-filter{
+    width:10% !important;
+  }
+  .filter{
+    width:100%;
+  }
+
+  .mobile-disappear{
+    display: none;
+  }
+
+  .laundry-details-header{
+    margin-left:5% !important;
+  }
+
+  .card-review{
+    width:100%;
+  }
+
+}
+
+@media(max-width: 1025px) {
+  .laundry-details-searchbar{
+    width:95% !important;
+  }
+  .laundry-details-filter{
+    width:5% !important;
+  }
+  .filter{
+    margin-top:25% !important;
+  }
+}
+
+@media(max-width: 496px) {
+  .laundry-details-searchbar{
+    width:90% !important;
+  }
+  .laundry-details-filter{
+    width:10% !important;
+  }
+
+  .laundry-details-header{
+    margin-left:0%!important;
+  }
+}
+

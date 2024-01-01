@@ -1,0 +1,59 @@
+.manager-signup{
+  opacity: 0.9 !important;
+  box-shadow: 0px 10px 40px -10px rgba(255, 255, 255, 1) !important;
+  background-color: var(--white) !important;
+  color: var(--customDarkBlue) !important;
+  position: fixed;
+  margin-right:35% !important;
+  margin-left:35% !important;
+  top:1% !important;
+  margin-right:5% !important;
+  width: 30% !important;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  border:none;
+}
+
+.manager-signup-container{
+  width:100% !important;
+  height: auto;
+  display: flex;
+}
+
+.manager-signup-content{
+  width:100%;
+  height: auto;
+  left:0% !important;
+}
+
+
+@media (max-width: 767px) {
+  .manager-signup{
+    width:100% !important;
+    position:fixed;
+    height:100% !important;
+    margin-left:0% !important;
+    left:0%;
+    top:0%;
+  }
+
+  .manager-signup-container{
+    width:100% !important;
+    height: 100%;
+    display:block;
+  }
+
+  .manager-signup-content{
+    width:100% !important;
+    height: 50% I !important;
+    left:0% !important;
+    overflow: scroll !important;
+  }
+  
+
+
+}

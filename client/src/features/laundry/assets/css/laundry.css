@@ -1,0 +1,185 @@
+.laundry-card:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.laundry-card{
+  width: 300px!important;
+  height: 320px!important;
+  background-color: var(--customMagenta) !important;
+  border-color: white !important;
+  -webkit-box-shadow :0px 10px 40px -10px rgba(0,0,0,0.7);
+  -moz-box-shadow :0px 10px 40px -10px rgba(0,0,0,0.7);
+  box-shadow : 0px 10px 40px -10px rgba(57, 57, 57, 0.5);
+  transition: transform 0.3s ease-in-out !important;
+}
+
+.prescription-card-footer{
+  background-color: var(--customBlue);
+}
+
+.laundry-prescription-card{
+  width: 300px!important;
+  height: 360px!important;
+  background-color: var(--customMagenta) !important;
+  border-color: white !important;
+  -webkit-box-shadow :0px 10px 40px -10px rgba(0,0,0,0.7);
+  -moz-box-shadow :0px 10px 40px -10px rgba(0,0,0,0.7);
+  box-shadow : 0px 10px 40px -10px rgba(57, 57, 57, 0.5);
+  transition: transform 0.3s ease-in-out !important;
+}
+
+.laundry-card-text{
+  color:whitesmoke;
+}
+
+.searchbar{
+  margin-top:0% !important;
+  margin-bottom: 1% !important;
+}
+
+.laundry-card-image{
+  width: 300px!important;
+  height: 200px!important;
+  object-fit: cover!important;
+}
+
+.laundry-container{
+  width:100% !important;
+  height:100vh !important;
+}
+
+.laundry-content{
+  margin-top:5rem!important;
+}
+
+
+.btn.btn-search{
+  --bs-btn-bg: var(--customBlue) !important;
+  color: white !important;
+  --bs-btn-hover-bg: var(--customMagenta)!important;
+  --bs-btn-hover-border-color : var(--customMagenta)!important;
+}
+
+.pricing{
+  margin-top: 80px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.table.new-order-table {
+  border: 1px solid var(--customDarkBlue);
+  box-shadow: 1px 1px var(--customDarkBlue);
+}
+.new-order {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  padding: 15px 20px;
+}
+.new-order-header {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr;
+  padding: 15px 20px;
+}
+
+.new-order .modal-body .inputbox {
+  margin-bottom: 20px 0;
+}
+
+.new-order .title h1 {
+  color: var(--customDarkBlue);
+}
+
+.new-order .add-order {
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 7px;
+  float: right;
+  color: var(--customDarkBlue);
+  cursor: pointer;
+}
+
+.new-order-modal {
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  padding: 10px 20px !important;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.new-order .add-order-btn .add-order:hover {
+  background-color: var(--customDarkBlue);
+  color: var(--white);
+}
+
+.new-order .add-order-btn .add-order {
+  border: 1px solid var(--customDarkBlue);
+  background-color: transparent;
+  outline: none;
+  transition: 0.2s ease-in-out;
+  max-width: fit-content;
+  line-height: 0;
+  padding: 10px 25px;
+}
+
+.new-order .add-order-btn ion-icon {
+  margin-bottom: -3px;
+  margin-left: 8px;
+}
+
+.new-order-table .add-order-form {
+  margin-left: 7%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.pricing-table {
+  width: 100%;
+  table-layout: fixed;
+  border: 3px solid var(--customDarkBlue);
+  border-radius: 10px; /* Add this line to make the table rounded */
+}
+
+.pricing-table thead tr h2,
+.pricing-table thead tr h5 {
+  width: max-content;
+}
+
+.pricing-table td input[type="text"],
+.pricing-table td input[type="number"] {
+  width: 100%;
+  text-align: right;
+  outline: none;
+}
+
+.pricing-table td,
+.pricing-table th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 0;
+  padding: 0.5rem;
+}
+
+.pricing-table tbody tr:first-child th {
+  padding-top: 1.5rem;
+}
+
+.pricing-table tfoot button {
+  width: 100%;
+  color: var(--white);
+}
+
+@media(max-width:768px){
+  .searchbar{
+    width:100% !important;
+  }
+
+  .search{
+    margin-left:10% !important;
+  }
+}

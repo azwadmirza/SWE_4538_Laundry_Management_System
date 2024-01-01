@@ -1,0 +1,51 @@
+.order-details-title{
+  color: var(--customMagenta);
+  font-size:20px;
+}
+
+.table-quantity td{
+  border: none;
+}
+
+.order-card{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.billing-icon{
+  margin-right: 4px;
+}
+
+.delivery-profile-picture{
+  width:100%;
+  border-radius: 50%;
+}
+
+.order-details-table tr,td{
+  border: none;
+}
+
+.order-modal{
+  max-height:500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.selected-button{
+  background-color: var(--customMagenta) !important;
+  color:whitesmoke !important;
+}
+
+.icon-margin{
+  margin-right:5px;
+}
+
+.generic-name{
+  color:#666666;
+}
+
+@media(max-width:346px){
+  .order-modal{
+    overflow-x: scroll;
+  }
+}
