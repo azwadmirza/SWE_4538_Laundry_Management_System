@@ -16,10 +16,10 @@ const ReviewCard = ({image,username,review_stars,review}:ReviewCardProps) => {
         <div className="container col-lg-12">
           <StarsRating
             classNamePrefix="avg-rating-stars col"
-            value={review_stars}
+            value={!review_stars?0:review_stars}
             disabled={true}
           />
-          <p className="avg-rating col">{review_stars} / 5</p>
+          <p className="avg-rating col">{!review_stars?0:review_stars} / 5</p>
         </div>
         <div className="review">
           <span className="review-comment">{review}</span>

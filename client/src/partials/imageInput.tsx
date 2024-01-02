@@ -11,7 +11,11 @@ const ImageInput=({imageURL,setImage}:ImageInputProps)=>{
   const [show, setShow] = useState(false);
   return (
     <div className="profile-picture-container">
-      <img src={imageURL} alt="profile-picture"/>
+      <img
+        src={imageURL}
+        alt="profile-picture"
+        style={{ width: '250px', height: '250px', borderRadius: '50%' }}
+      />
       <p className="edit-profile-picture" onClick={() => setShow(true)}>Edit</p>
       <UploadImage modal={{show,setShow}} setImage={setImage} />
     </div>
