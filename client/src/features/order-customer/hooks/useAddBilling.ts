@@ -14,6 +14,15 @@ export const useAddBilling=(orderID:string,setShow:React.Dispatch<React.SetState
         'Content-Type':'application/json',
         'Authorization':`Bearer ${localStorage.getItem('token')}`
       }
+    }).then((res)=>{
+      setShow(false);
+      console.log(res);
+      if(res.data.type==="digital"){
+        window.location.href=res.data.url;
+      }
+      else{
+        window.location.reload();
+      }
     })
     setShow(false);
   }

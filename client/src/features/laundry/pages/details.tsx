@@ -1,7 +1,6 @@
 import { Table } from "react-bootstrap";
 import NavbarCustomer from "../../../partials/navbarCustomer";
 import Loader from "../../../partials/loader";
-import { useState } from "react";
 import "../assets/css/cloth.css";
 import ReviewOrder from "../components/review-laundry";
 import AddNewOrder from "../components/add-new-order";
