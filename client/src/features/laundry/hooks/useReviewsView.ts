@@ -15,6 +15,7 @@ export const useReviewsView=()=>{
   const [loading, setLoading] = useState<boolean>(true);
   const [reviewed,setReviewed]=useState<boolean>(false);
   const [customerReview,setCustomerReview]=useState<{
+    _id:string;
     profilePicture: string;
     username: string|undefined;
     review: string|undefined;
@@ -29,6 +30,7 @@ export const useReviewsView=()=>{
       }
     }).then((res)=>{
       setCustomerReview({
+        _id:res.data.reviewID,
         profilePicture:res.data.customerProfilePicture,
         username:res.data.customerName,
         review:res.data.review,

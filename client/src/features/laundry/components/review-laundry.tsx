@@ -22,7 +22,7 @@ const ReviewOrder = ({_id,laundryImage,laundryName}:ReviewOrderProps) => {
     return (
       <div className="review-container">
           <AverageReview image={laundryImage} disabled={disabled} review_stars={averageRating} setRevealReviewForm={setRevealReviewForm} laundryName={laundryName}/>
-          <CustomerReviewCard reviewed={reviewed} setRevealReviewForm={setRevealReviewForm} image={customerReview?.profilePicture?import.meta.env.VITE_SERVER+"/uploads/"+customerReview.profilePicture:"brokenProfilePicture.jpg"} username={customerReview?.username} review_stars={customerReview?.rev_stars} review={customerReview?.review}/>
+          <CustomerReviewCard _id={customerReview?._id} reviewed={reviewed} setRevealReviewForm={setRevealReviewForm} image={customerReview?.profilePicture?customerReview.profilePicture:"brokenProfilePicture.jpg"} username={customerReview?.username} review_stars={customerReview?.rev_stars} review={customerReview?.review}/>
           <ReviewForm reviewed={reviewed} revealForm={revealReviewForm} setRevealReviewForm={setRevealReviewForm}/>
           <ViewReviews reviews={reviews}/>
       </div>

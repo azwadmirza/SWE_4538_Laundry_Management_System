@@ -80,6 +80,7 @@ const ProfileFormLaundry= ({handleSubmit,openingTime,setOpeningTime,address,setA
                   id="closingTime"
                   value={closingTime}
                   onChange={(e) => setClosingTime(e.target.value)}
+                  min={openingTime}
                 />
                 {closingTime==="" || isDisabled || (<label htmlFor="closingTime">Closing Time</label>)}
               </div>
