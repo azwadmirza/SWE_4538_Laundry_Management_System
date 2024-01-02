@@ -29,7 +29,7 @@ export const useLaundryForm=()=>{
       setAddress(res.data.address);
       setOpeningTime(res.data.openingTime);
       setClosingTime(res.data.closingTime);
-      setImageURL(import.meta.env.VITE_SERVER+"/uploads/"+profilePicture);
+      setImageURL(profilePicture);
     }
     ).catch((err)=>{
       console.log(err);

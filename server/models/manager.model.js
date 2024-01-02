@@ -69,6 +69,28 @@ managerSchema.statics.signup=async function(user){
     }
 }
 
+managerSchema.statics.googleSignup=async function(user){
+    try{
+        const newManager=await this.create(user);
+        const token=await generateJwt(newManager);
+        return token;
+    }
+    catch(error){
+        throw error;
+    }
+}
+
+managerSchema.statics.googleLogin=async function(user){
+    try{
+        const existingUser=await this.findOne({email:user.email,googleId:user.googleId});
+        const token=await generateJwt(existingUser);
+        return token;
+    }
+    catch(error){
+        throw error;
+    }
+}
+
 managerSchema.statics.login=async function(user){
     try{
         const existingUser=await this.findOne({email:user.email});

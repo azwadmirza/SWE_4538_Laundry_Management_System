@@ -22,7 +22,7 @@ export const useCustomerForm=()=>{
       const {username,phoneNumber,profilePicture}=res.data;
       setUsername(username);
       setPhoneNumber(phoneNumber);
-      setImageURL(import.meta.env.VITE_SERVER+"/uploads/"+profilePicture);
+      setImageURL(profilePicture);
     }
     ).catch((err)=>{
       console.log(err);

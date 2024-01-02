@@ -22,6 +22,7 @@ const SignUp = ({ changeState }: SignUpProps) => {
   const [show, setShow] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const {
+    isDisabled,
     error,
     userType,
     setUserType,
@@ -161,14 +162,14 @@ const SignUp = ({ changeState }: SignUpProps) => {
               />
               <label htmlFor="">Re-enter password</label>
             </div>
+            <div id="errorConfirmPassword" className="errorBox">
+              {errorConfirmPassword}
+            </div>
             <div className="terms_and_conditions">
               <label htmlFor="remember_me">
                 <input type="checkbox" id="remember_me" required />
                 Agree to all the <a href="/terms">terms and conditions</a>
               </label>
-            </div>
-            <div id="errorConfirmPassword" className="errorBox">
-              {errorConfirmPassword}
             </div>
             <button
               type="submit"
@@ -176,14 +177,12 @@ const SignUp = ({ changeState }: SignUpProps) => {
               name="submit"
               value="submit"
               id="buttonRegister"
+              disabled={isDisabled}
             >
               Register
             </button>
           </form>
           <hr />
-          <button name="google" className="custom-button full-width">
-            Continue with <IonIcon icon={logoGoogle}></IonIcon>
-          </button>
           <div className="login-link">
             <p>
               Already have an account?{" "}
