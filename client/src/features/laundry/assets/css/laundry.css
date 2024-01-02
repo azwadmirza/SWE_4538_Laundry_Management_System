@@ -144,6 +144,13 @@
   border-radius: 10px; /* Add this line to make the table rounded */
 }
 
+.video{
+  width:75%;
+  height: auto;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+}
+
 .pricing-table thead tr h2,
 .pricing-table thead tr h5 {
   width: max-content;

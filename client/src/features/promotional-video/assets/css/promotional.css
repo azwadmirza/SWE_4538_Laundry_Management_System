@@ -1,0 +1,26 @@
+.video{
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 75%;
+    height: 75%;
+    position: relative;
+    cursor: pointer;
+}
+
+.upload-video{
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    margin-top: 80px;
+    width: 75%;
+    height: 75%;
+    position: relative;
+    cursor: pointer;
+}
+
+.card-header{
+    font-size: large;
+    background-color: var(--customDarkBlue);
+    color: whitesmoke;
+}

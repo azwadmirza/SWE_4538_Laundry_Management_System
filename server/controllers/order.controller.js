@@ -1,6 +1,7 @@
 const Order = require('../models/order.model');
 const Manager = require('../models/manager.model');
 const Customer = require('../models/customer.model');
+const { MakePayment } = require('../library/ssl-commerz');
 
 const addOrder = async (req, res) => {
   try {
@@ -81,14 +82,49 @@ const getOrdersByManagerID = async (req, res) => {
   }
 };
 
+const commenceDigitalPayment = async(customer_data,orderID,manager_data,amount)=>{
+  try{
+    const makePayment=new MakePayment(customer_data,orderID,'BDT',manager_data,amount);
+    const result=await makePayment.makePaymentRequest();
+    return {paymentSuccessful:true,url:result,type:'digital'};
+  }
+  catch(error){
+    return {paymentSuccessful:false,type:'digital'};
+  }
+}
+
 const makePayment = async (req, res) => {
   try {
-    const { orderID, paymentMethod } = req.body;
+    const { orderID, paymentOption } = req.body;
     const orders = await Order.findById(orderID);
-    orders.status = "Paid";
-    orders.paymentMethod = paymentMethod;
-    orders.save();
-    return res.status(200).json(orders);
+    let ammont=0;
+    orders.items.forEach((item)=>{
+      ammont+=item.unitPrice*item.quantity;
+    });
+    if (!orders) {
+      return res.status(404).json({ error: 'Order not found' });
+    }
+    if(paymentOption==="cash"){
+      orders.status = "Paid";
+      orders.paymentMethod = paymentOption;
+      orders.save();
+      return res.status(200).json({paymentSuccessful:true,type:'cash'});
+    }
+    else{
+      const customer = await Customer.findById(orders.customerID);
+      const manager = await Manager.findById(orders.laundryManagerID);
+      const result=await commenceDigitalPayment(customer,orderID,manager,ammont);
+      console.log(result);
+      if(result.paymentSuccessful){
+        orders.status = "Paid";
+        orders.paymentMethod = paymentMethod;
+        orders.save();
+        return res.status(200).json(result);
+      }
+      else{
+        return res.status(500).json({ error: 'Internal Server Error' });
+      }
+    }
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: 'Internal Server Error' });

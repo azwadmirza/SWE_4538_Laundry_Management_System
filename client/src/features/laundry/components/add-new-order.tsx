@@ -1,7 +1,6 @@
 import { IonIcon } from "@ionic/react";
-import { addCircleOutline, mailOutline } from "ionicons/icons";
+import { addCircleOutline } from "ionicons/icons";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import AddOrderModal from "./add-order-modal";
 
 export interface IItems{
@@ -19,8 +18,6 @@ interface IAddNewOrder{
 }
 
 const AddNewOrder = ({items}:IAddNewOrder) => {
-  const { id } = useParams();
-  const navigate = useNavigate();
   const [show,setShow]=useState(false);
   return (
     <div className="table new-order-table">

@@ -2,7 +2,7 @@ const route=require('express').Router();
 const {postSignUp,postLogin, customerSignUp,verifyForgotOTP, managerSignUp, verifyEmail,forgotPassword,resetPassword, verifyOTP} = require('../controllers/authentication.controller');
 const {validationMiddleware,validate} = require('../middleware/signup.middleware');
 const isUnverifiedUser=require('../middleware/authorization_unverified.middleware');
-const { profilePictureUpload } = require('../middleware/storage.middleware');
+const { profilePictureUpload } = require('../middleware/image.middleware');
 const { googleAuthGetToken, googleAuthRefreshToken } = require('../controllers/google.controller');
 
 route.post('/api/login',postLogin);

@@ -17,6 +17,7 @@ import Review from "./features/laundry-review/pages/Review";
 import Price from "./features/laundry-pricing/pages/Price";
 import Error404 from "./pages/error404";
 import ForgotPassword from "./features/forgot-password/pages/forgotPassword";
+import Promotional from "./features/promotional-video/pages/Promotional";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             path="/customer/profile"
             element={<ProfilePageForCustomers />}
           />
+          <Route path="/laundry/promotional" element={<Promotional />} />
           <Route path="/laundry/profile" element={<ProfilePageForLaundry />} />
           <Route path="/customer/laundry" element={<Laundry />} />
           <Route

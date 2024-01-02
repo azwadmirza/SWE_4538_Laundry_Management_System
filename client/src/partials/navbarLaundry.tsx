@@ -33,6 +33,7 @@ const NavbarLaundry=() =>{
             <Nav.Link href={`/laundry/price`}>Pricing
             </Nav.Link>
             <Nav.Link href="/laundry/review"  >Review</Nav.Link>
+            <Nav.Link href="/laundry/promotional"  >Promote</Nav.Link>
             <Nav.Link className="d-block d-lg-none" onClick={handleLogout}>Log Out</Nav.Link>
           </Nav>
           <div className="customLogOut d-none d-lg-flex justify-content-end">

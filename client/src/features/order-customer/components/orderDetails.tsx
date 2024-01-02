@@ -25,6 +25,7 @@ const OrderDetails = ({show,setShow,order,price}:OrderModalProps) => {
       }
     });
     order.status="Paying";
+    setShow(false);
   }
 
   return ( 
