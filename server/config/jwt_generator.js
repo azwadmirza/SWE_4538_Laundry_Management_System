@@ -5,7 +5,7 @@ async function generateJwt(user) {
     sub: user._id,
     type:user.type,
     verified:user.verified,
-    exp: Math.floor(Date.now() / 1000) + 60 * 60
+    exp: Math.floor(Date.now() / 1000) + 60 * 60 * 1000 * 2
   };
 
   const token = await jwt.sign(payload, process.env._JWT_SECRET,{algorithm: 'HS256'});

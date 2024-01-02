@@ -1,62 +1,88 @@
 import {
-  Form,
-  Button,
-  InputGroup
+  Form
 } from "react-bootstrap";
-import { useState } from "react";
-import {
-  Lock,
-  EyeFill,
-  EyeSlashFill
-} from "react-bootstrap-icons";
+
 import { IonIcon } from "@ionic/react";
-import { lockClosedOutline } from "ionicons/icons";
+import {
+  lockClosedOutline,
+  lockOpenOutline,
+} from "ionicons/icons";
+import { useResetPassword } from "../hooks/useResetPassword";
+import DOMPurify from "dompurify";
 
 
 type PasswordResetProps={
-  email:string
+  email:string,
+  role:string
 };
 
-const PasswordReset = ({email}:PasswordResetProps) => {
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordVisibility, setPasswordVisibility] = useState(false);
-  const [errorPassword, setErrorPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [errorConfirmPassword, setErrorCPassword] = useState("");
-  const [confirmPasswordVisibility, setConfirmPasswordVisibility] =useState(false);
-  const [isDisabled, setIsDisabled] =useState(false);
-  const passwordChange = (e:string) =>{
-
-  }
-
-  const confirmPasswordChange = (e:string) =>{
-
-  }
-
-
-
-  const handleSubmit = async(e:React.FormEvent<HTMLFormElement>) =>{
-    console.log('comes here');
-    await e.preventDefault();
-  }
+const PasswordReset = ({email,role}:PasswordResetProps) => {
+  const  {password,passwordChange,confirmPassword,confirmPasswordChange,passwordVisibility,confirmPasswordVisibility,setConfirmPasswordVisibility,setPasswordVisibility,handleSubmit,isDisabled,errorPassword,errorMessage,errorConfirmPassword}=useResetPassword(email,role);
 
   return ( 
         <Form onSubmit={(e)=>handleSubmit(e)}> 
+        <div className="errorBox" style={{color:"red"}}>
+          <p>{errorMessage}</p>
+        </div>
         <div className="inputbox">
-                        <IonIcon icon={lockClosedOutline}></IonIcon>
-                        <input type="password" id="password" name="password" required/>
-                        <label htmlFor="">Password</label>
-                    </div>
-                    <div id="errorPassword" className="errorBox"></div>
-                    <div className="inputbox">
-                        <IonIcon icon={lockClosedOutline}></IonIcon>
-                        <input type="password" id="confirmPassword" name="confirmPassword" required/>
-                        <label htmlFor="">Re-enter password</label>
-                    </div>
+              {(passwordVisibility === "password" && (
+                <IonIcon
+                  icon={lockClosedOutline}
+                  onClick={() => setPasswordVisibility("text")}
+                ></IonIcon>
+              )) ||
+                (passwordVisibility === "text" && (
+                  <IonIcon
+                    icon={lockOpenOutline}
+                    onClick={() => setPasswordVisibility("password")}
+                  ></IonIcon>
+                ))}
+              <input
+                type={passwordVisibility}
+                onChange={(e) =>
+                  passwordChange(DOMPurify.sanitize(e.target.value))
+                }
+                id="password"
+                name="password"
+                required
+                value={password}
+              />
+              <label htmlFor="">Password</label>
+            </div>
+            <div id="errorPassword" className="errorBox">
+              {errorPassword}
+            </div>
+            <div className="inputbox">
+              {(confirmPasswordVisibility === "password" && (
+                <IonIcon
+                  icon={lockClosedOutline}
+                  onClick={() => setConfirmPasswordVisibility("text")}
+                ></IonIcon>
+              )) ||
+                (confirmPasswordVisibility === "text" && (
+                  <IonIcon
+                    icon={lockOpenOutline}
+                    onClick={() => setConfirmPasswordVisibility("password")}
+                  ></IonIcon>
+                ))}
+              <input
+                type={confirmPasswordVisibility}
+                onChange={(e) =>
+                  confirmPasswordChange(DOMPurify.sanitize(e.target.value))
+                }
+                required
+                value={confirmPassword}
+                id="confirmPassword"
+                name="confirmPassword"
+              />
+              <label htmlFor="">Re-enter password</label>
+            </div>
+            <div id="errorConfirmPassword" className="errorBox">
+              {errorConfirmPassword}
+            </div>
 
-                  <div className='d-flex justify-content-center'>
-        <button type="submit" disabled={isDisabled}>
+                  <div className='w-100 justify-content-center'>
+        <button type="submit" className="custom-button full-width" disabled={isDisabled}>
           Reset Password
         </button>
         </div>

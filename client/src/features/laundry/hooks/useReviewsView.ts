@@ -18,8 +18,9 @@ export const useReviewsView=()=>{
     profilePicture: string;
     username: string|undefined;
     review: string|undefined;
-    review_stars: number|undefined;
+    rev_stars: number|undefined;
   }>();
+  const [averageRating,setAverageRating]=useState<number>(0);
 
   const fetchCustomerReview=async()=>{
     await axios.get(import.meta.env.VITE_SERVER+'/api/review/customer/'+id,{
@@ -31,7 +32,7 @@ export const useReviewsView=()=>{
         profilePicture:res.data.customerProfilePicture,
         username:res.data.customerName,
         review:res.data.review,
-        review_stars:res.data.rev_stars
+        rev_stars:res.data.rev_stars
       });
       setReviewed(res.data.reviewed);
     }).catch((err)=>{
@@ -47,6 +48,12 @@ export const useReviewsView=()=>{
     }).then((res)=>{
       console.log(res.data);
       setReviews(res.data);
+      let total=0;
+      res.data.forEach((review:any)=>{
+        total+=review.rev_stars;
+      })
+      setAverageRating(total/res.data.length);
+
     }).catch((err)=>{
       console.log(err);
     });
@@ -62,5 +69,5 @@ export const useReviewsView=()=>{
     fetchAllReviews();
   },[])
 
-  return {reviews,loading,customerReview,reviewed};
+  return {averageRating,reviews,loading,customerReview,reviewed};
 }

@@ -8,7 +8,7 @@ import User from "./features/user-signup/pages/User";
 import Verification from "./features/verification/pages/Verification";
 import ChangePassword from "./features/profile/pages/change-password";
 import ProfilePageForCustomers from "./features/profile/pages/customer";
-import ProfilePageForPharmacy from "./features/profile/pages/manager";
+import ProfilePageForLaundry from "./features/profile/pages/manager";
 import Laundry from "./features/laundry/pages/laundry";
 import LaundryDetails from "./features/laundry/pages/details";
 import MyOrders from "./features/order-customer/pages/myOrders";
@@ -16,6 +16,7 @@ import Orders from "./features/order-laundry/pages/orders";
 import Review from "./features/laundry-review/pages/Review";
 import Price from "./features/laundry-pricing/pages/Price";
 import Error404 from "./pages/error404";
+import ForgotPassword from "./features/forgot-password/pages/forgotPassword";
 
 function App() {
   return (
@@ -33,12 +34,13 @@ function App() {
             path="/customer/profile"
             element={<ProfilePageForCustomers />}
           />
-          <Route path="/laundry/profile" element={<ProfilePageForPharmacy />} />
+          <Route path="/laundry/profile" element={<ProfilePageForLaundry />} />
           <Route path="/customer/laundry" element={<Laundry />} />
           <Route
             path="/customer/laundry/details/:id"
             element={<LaundryDetails />}
           />
+          <Route path="/forgot" element={<ForgotPassword />} />
           <Route path="/customer/order" element={<MyOrders />} />
           <Route path="/laundry/order" element={<Orders />} />
           <Route path="/laundry/review" element={<Review />} />

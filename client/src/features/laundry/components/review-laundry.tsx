@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "react-quill/dist/quill.snow.css";
-import axios from "axios";
 import ReviewForm from "./review-form-modal";
 import ViewReviews from "./view-reviews";
 import CustomerReviewCard from "./customer-review";
@@ -17,13 +16,13 @@ type ReviewOrderProps={
 const ReviewOrder = ({_id,laundryImage,laundryName}:ReviewOrderProps) => {
   const [revealReviewForm, setRevealReviewForm] = useState(false);
   const [disabled,setDisabled]=useState(false);
-  const {reviews,loading,customerReview,reviewed}=useReviewsView();
+  const {reviews,loading,customerReview,reviewed,averageRating}=useReviewsView();
 
   if(!loading){
     return (
       <div className="review-container">
-          <AverageReview image={import.meta.env.VITE_SERVER+"/uploads/"+laundryImage} disabled={disabled} review_stars={4.5} setRevealReviewForm={setRevealReviewForm} laundryName={laundryName}/>
-          <CustomerReviewCard reviewed={reviewed} setRevealReviewForm={setRevealReviewForm} image={customerReview?.profilePicture?import.meta.env.VITE_SERVER+"/uploads/"+customerReview.profilePicture:"brokenProfilePicture.jpg"} username={customerReview?.username} review_stars={customerReview?.review_stars} review={customerReview?.review}/>
+          <AverageReview image={laundryImage} disabled={disabled} review_stars={averageRating} setRevealReviewForm={setRevealReviewForm} laundryName={laundryName}/>
+          <CustomerReviewCard reviewed={reviewed} setRevealReviewForm={setRevealReviewForm} image={customerReview?.profilePicture?import.meta.env.VITE_SERVER+"/uploads/"+customerReview.profilePicture:"brokenProfilePicture.jpg"} username={customerReview?.username} review_stars={customerReview?.rev_stars} review={customerReview?.review}/>
           <ReviewForm reviewed={reviewed} revealForm={revealReviewForm} setRevealReviewForm={setRevealReviewForm}/>
           <ViewReviews reviews={reviews}/>
       </div>

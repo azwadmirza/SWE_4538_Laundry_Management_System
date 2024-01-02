@@ -3,6 +3,7 @@ const customer = require('../models/customer.model');
 const manager = require('../models/manager.model');
 const Otp = require('../models/otp.model');
 const SMTPClient = require('../utils/smtp');
+const bcrypt = require('bcrypt');
 
 const postSignUp = async (req, res) => {
     try {
@@ -144,5 +145,71 @@ const verifyOTP = async (req, res) => {
     }
 }
 
+const forgotPassword=async(req,res)=>{
+    try{
+        const {email}=req.params;
+        const mailer = new SMTPClient(email);
+        const otp=mailer.generateOTP();
+        await Otp.create({email:email,otp});
+        mailer.generateMail();
+        mailer.sendVerificationMail();
+        res.status(200).json({ success: true });
+    }
+    catch(error){
+        res.status(500).json({ error: error.message });
+    }
+}
 
-module.exports = { postSignUp, postLogin, customerSignUp, managerSignUp, verifyEmail, verifyOTP };
+const verifyForgotOTP=async(req,res)=>{
+    try{
+        const {email}=req.params;
+        const { otp } = req.body;
+        await Otp.verifyEmail(email, otp);
+        res.status(200).json({ success: true });
+    }
+    catch(error){
+        res.status(400).json({ error: error.message });
+    }
+}
+
+const resetPassword=async(req,res)=>{
+    try{
+        const {email,role}=req.params;
+        const { password } = req.body;
+        if(role==="customer"){
+            const Customer=await customer.findOne({email});
+            if(Customer.googleId){
+                return res.status(400).json({ error: "Cannot reset password, oAuth used" });
+            }
+            const salt=await bcrypt.genSalt(10);
+            Customer.password=await bcrypt.hash(password,salt);
+            await Customer.save();
+            return res.status(200).json({ success: true });
+        }
+        else if(role==="manager"){
+            const Manager=await manager.findOne({email});
+            if(Manager.googleId){
+                return res.status(400).json({ error: "Cannot reset password, oAuth used" });
+            }
+            const salt=await bcrypt.genSalt(10);
+            Manager.password=await bcrypt.hash(password,salt);
+            await Manager.save();
+            return res.status(200).json({ success: true });
+        }
+        else{
+            return res.status(400).json({ error: "Invalid role" });
+        }
+    }
+    catch(error){
+        res.status(500).json({ error: error.message });
+    }
+}
+
+const googleLogin=async(req,res)=>{
+    const {code,role}=req.body;
+    console.log(code);
+
+}
+
+
+module.exports = { postSignUp, googleLogin,postLogin, customerSignUp, managerSignUp, verifyEmail, verifyOTP,forgotPassword,verifyForgotOTP,resetPassword };

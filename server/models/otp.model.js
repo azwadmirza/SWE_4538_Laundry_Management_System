@@ -7,8 +7,10 @@ const otpSchema = new mongoose.Schema({
     required: true
   },
   user_id: {
-    type: String,
-    required: true
+    type: String
+  },
+  email:{
+    type:String
   }
 });
 
@@ -23,6 +25,19 @@ otpSchema.statics.verify = async function (user_id, otp) {
     throw error;
   }
 };
+
+otpSchema.statics.verifyEmail = async function (email, otp) {
+  try {
+    const otpDoc = await this.findOne({ email, otp:otp });
+    if (!otpDoc) {
+      throw new Error('Invalid OTP');
+    }
+    await this.deleteOne({ email });
+  } catch (error) {
+    throw error;
+  }
+};
+
 
 const Otp = mongoose.model('Otp', otpSchema);
 

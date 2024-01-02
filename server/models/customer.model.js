@@ -8,9 +8,11 @@ const customerSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    googleId:{
+        type:String,
+    },
     password: {
         type: String,
-        required: true
     },
     username: {
         type: String,
@@ -35,6 +37,28 @@ customerSchema.statics.signup=async function(user){
         user.password=await bcrypt.hash(user.password,salt);
         const newCustomer=await this.create(user);
         const token=await generateJwt(newCustomer);
+        return token;
+    }
+    catch(error){
+        throw error;
+    }
+}
+
+customerSchema.statics.googleSignup=async function(user){
+    try{
+        const newCustomer=await this.create(user);
+        const token=await generateJwt(newCustomer);
+        return token;
+    }
+    catch(error){
+        throw error;
+    }
+}
+
+customerSchema.statics.googleLogin=async function(user){
+    try{
+        const existingUser=await this.findOne({email:user.email,googleId:user.googleId});
+        const token=await generateJwt(existingUser);
         return token;
     }
     catch(error){

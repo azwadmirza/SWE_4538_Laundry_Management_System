@@ -5,6 +5,7 @@ import { useLogin } from "../hooks/useLogin";
 import '../assets/css/login.css';
 import { useState } from "react";
 import Loader from "../partials/loader";
+import GoogleContinueModal from "./google-continue";
 
 interface LoginProps{
   changeState:React.Dispatch<React.SetStateAction<string>>
@@ -15,6 +16,7 @@ const Login = ({changeState}:LoginProps) => {
   const {userType,setUserType,error,email,setEmail,password,changePassword,login}=useLogin();
   const [passwordVisibility,setPasswordVisibility]=useState("password");
   const [loading,setLoading]=useState(false);
+  const [show,setShow]=useState(false);
 
   const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
@@ -31,6 +33,7 @@ const Login = ({changeState}:LoginProps) => {
   else{
     return (
       <Card className="login">
+        <GoogleContinueModal show={show} setShow={setShow}/>
         <Card.Body>
           <h4>Login</h4>
           <form className="form-value" method="POST" onSubmit={(e)=>handleSubmit(e)}>
@@ -82,10 +85,18 @@ const Login = ({changeState}:LoginProps) => {
               LOGIN
             </button>
             <hr/>
-            <button name="google" className="custom-button full-width">Continue with <IonIcon icon={logoGoogle}></IonIcon></button>
+            <button className="custom-button full-width" onClick={()=>setShow(true)}>
+              <IonIcon icon={logoGoogle} />
+              <span>Continue with Google</span>
+            </button>
             <div className="register-link">
               <p>
                 Don't have an account? <a onClick={()=>changeState("SignUp")}  className="link-to-register">Register</a>
+              </p>
+            </div>
+            <div className="register-link">
+              <p>
+                Forgot Password? <a href="/forgot"  className="link-to-register">Reset Password</a>
               </p>
             </div>
           </form>

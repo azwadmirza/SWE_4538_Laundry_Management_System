@@ -1,69 +1,77 @@
-import Button from 'react-bootstrap/Button';
-import OtpInput from 'react18-input-otp';
-import { useState } from "react";
-import 'bootstrap';
-import OTPValidityTimer from '../../../partials/OTPTimer';
-import PasswordReset from './forgotPasswordReset';
+import OtpInput from "react18-input-otp";
+import OTPValidityTimer from "../../../partials/OTPTimer";
+import PasswordReset from "./forgotPasswordReset";
+import { useForgotOTP } from "../hooks/useForgotOTP";
 
-type ForgotPasswordProps={
-  email:string
+type ForgotPasswordProps = {
+  email: string;
+  role:string;
 };
 
-const ForgotPasswordEmailVerify = ({email}:ForgotPasswordProps) => {
-    const [otp,setOTP]=useState("");
-    const [isDisabled,setIsDisabled]=useState(true);
-    const [isLocked,setisLocked]=useState(false);
-    const [error,setError]=useState(false);
-    const [enterotp,setEnterotp]=useState(true);
-    const handleTimerExpire = () =>{
-      setisLocked(true);
-    }
-
-    const resend = () =>{
-      window.location.reload();
-    }
-
-    const handleSubmit = async() =>{
-      setEnterotp(false);
-    }
-    
-  if(enterotp){
+const ForgotPasswordEmailVerify = ({ email,role }: ForgotPasswordProps) => {
+  const {
+    otp,
+    setOTP,
+    isDisabled,
+    isLocked,
+    remainingTime,
+    error,
+    handleSubmit,
+    onResend,
+    enterotp
+  } = useForgotOTP(180,email);
+  if (enterotp) {
     return (
-      <div className="verifyDiv">
-    <p className="p2">
-      An OTP has been sent to your entered email {email}
-    </p>
-    <p className="p2" style={{color:'red'}}>{error}</p>
-    <div className="otpElements">
-      <p className="p3">Enter your Code here</p>
-      <div className="otp">
-        <OtpInput
-          onChange={setOTP}
-          value={otp}
-          inputStyle="inputStyle"
-          numInputs={6}
-          separator={<span></span>}
-        />
-      </div>
-      <p>OTP is valid for: <OTPValidityTimer validityPeriodInSeconds={180} onTimerExpired={handleTimerExpire}/></p>
-      
-    </div>
-    <div style={{marginBottom:'2%'}}><p className="p3">Didn't receive the code?</p></div>
-    <div className="d-flex">
-    <button disabled={isDisabled} onClick={resend}>Resend</button>
-    <button disabled={isLocked} style={{marginLeft:'2%'}} onClick={()=>handleSubmit()}>
-        Verify
-      </button>
-    </div>
+      <>
+        <p className="p2">
+          An OTP has been sent to your entered email address. Please enter the
+          OTP below to verify your email address.
+        </p>
+        <p className="errorBox">{error}</p>
+        <div className="otpElements">
+          <p className="p3">Enter your Code here</p>
+          <div className="otp">
+            <OtpInput
+              onChange={setOTP}
+              value={otp}
+              numInputs={6}
+              className="otpbox"
+              separator={<span> </span>}
+            />
+          </div>
+          <p>
+            OTP is valid for: <OTPValidityTimer remainingTime={remainingTime} />
+          </p>
+        </div>
+        <div>
+          <p className="p3">Didn't receive the code?</p>
+        </div>
+        <div className="d-flex mx-auto w-100">
+          <div className="w-50">
+            <button
+              className="custom-button full-width"
+              disabled={isDisabled}
+              onClick={onResend}
+            >
+              Resend
+            </button>
+          </div>
+          <div className="w-50">
+            <button
+              className="custom-button full-width"
+              disabled={isLocked}
+              style={{ marginLeft: "2%" }}
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </>
+    );
+  } else {
+    return <PasswordReset email={email} role={role}></PasswordReset>;
+  }
+};
 
-  </div>
- );
-  }
-  else{
-    return (
-      <PasswordReset email={email}></PasswordReset>
-    )
-  }
-}
- 
 export default ForgotPasswordEmailVerify;
