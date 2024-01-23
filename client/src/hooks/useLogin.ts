@@ -23,7 +23,7 @@ export const useLogin=()=>{
       type:userType
     }).then((res)=>{ 
       localStorage.setItem("token",res.data.token); 
-      if(!res.data.verified){
+      if(res.data && !res.data.verified){
         navigate("/verify");
       }
       else{
