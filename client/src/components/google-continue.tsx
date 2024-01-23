@@ -21,7 +21,7 @@ const GoogleContinueModal = ({ show, setShow }: ModalProps) => {
             </div>
             <div className="radio-button-group">
             <button
-              className={`radio-button ${
+              className={`${
                 role === "manager" ? "radio-button" : "radio-button-outline"
               }`}
               onClick={() => setRole("manager")}
@@ -29,7 +29,7 @@ const GoogleContinueModal = ({ show, setShow }: ModalProps) => {
               Manager
             </button>
             <button
-              className={`radio-button ${
+              className={`${
                 role === "customer"
                   ? "radio-button"
                   : "radio-button-outline"

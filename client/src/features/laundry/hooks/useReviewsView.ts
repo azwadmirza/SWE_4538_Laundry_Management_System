@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 export const useReviewsView=()=>{
   const [reviews, setReviews] = useState<
     | {
-        customerProfilePicture: string;
+        profilePicture: string;
         customerName: string;
         review: string;
         rev_stars: number;
@@ -31,7 +31,7 @@ export const useReviewsView=()=>{
     }).then((res)=>{
       setCustomerReview({
         _id:res.data.reviewID,
-        profilePicture:res.data.customerProfilePicture,
+        profilePicture:res.data.profilePicture,
         username:res.data.customerName,
         review:res.data.review,
         rev_stars:res.data.rev_stars

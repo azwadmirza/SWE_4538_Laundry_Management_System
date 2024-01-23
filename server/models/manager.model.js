@@ -34,7 +34,7 @@ const managerSchema = new mongoose.Schema({
     },
     verified:{
         type:Boolean,
-        default:true
+        default:false
     },
     pricingDetails: [{
         ClothType: {

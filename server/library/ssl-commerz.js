@@ -14,10 +14,10 @@ class MakePayment{
       multi_card_name: "mastercard"
     }
     this.routes={
-      success_url: `http://localhost:8080/api/make-payment/success?oid=${orderID}&lid=${manager._id}&cid=${customer._id}`,
-      fail_url: `http://localhost:8080/api/make-payment/fail?oid=${orderID}&lid=${manager._id}&cid=${customer._id}`,
-      cancel_url: `http://localhost:8080/api/make-payment/cancel?oid=${orderID}&lid=${manager._id}&cid=${customer._id}`,
-      ipn_url: `http://localhost:8080/api/make-payment/ipn?oid=${orderID}&lid=${manager._id}&cid=${customer._id}`
+      success_url: `http://localhost:5000/api/make-payment/success?oid=${orderID}&lid=${manager._id}&cid=${customer._id}`,
+      fail_url: `http://localhost:5000/api/make-payment/fail?oid=${orderID}&lid=${manager._id}&cid=${customer._id}`,
+      cancel_url: `http://localhost:5000/api/make-payment/cancel?oid=${orderID}&lid=${manager._id}&cid=${customer._id}`,
+      ipn_url: `http://localhost:5000/api/make-payment/ipn?oid=${orderID}&lid=${manager._id}&cid=${customer._id}`
     }
     this.product={
       product_name: "Medical Supplies from "+manager.username,

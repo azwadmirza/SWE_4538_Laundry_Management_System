@@ -25,13 +25,13 @@ const Price = () => {
     const [error,setError]=useState<string>("");
 
     const fetchPricing = async () => {
-      await axios.get("http://localhost:8080/api/manager/get-pricing-details",{
+      await axios.get(import.meta.env.VITE_SERVER+"/api/manager/get-pricing-details",{
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + localStorage.getItem("token")
         }
       }).then((res)=>{
-        setPricing(res.data.pricingDetails);
+        setPricing(res.data.pricingDetails?res.data.pricingDetails:[]);
         setLoading(false);
       }
       ).catch((err)=>{
@@ -47,8 +47,7 @@ const Price = () => {
   
     const updatePricing = async () => {
         await axios
-          .put("http://localhost:8080/api/order/update-pricing", {
-            manager_email: "manager",
+          .patch(import.meta.env.VITE_SERVER+"/api/order/update-pricing", {
             pricing: pricing,
           },{
             headers: {
@@ -147,7 +146,7 @@ const Price = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {pricing.map((price, index) => (
+                  {pricing && pricing.map((price, index) => (
                     <tr>
                       <td>{price.ClothType}</td>
                       <td
@@ -173,6 +172,11 @@ const Price = () => {
                           onChange={(e) =>
                             changeValue(e.target.value, index, "Wash")
                           }
+                          onClick={() => {
+                            setIndex(index);
+                            setValue(price.Wash);
+                            setCurrentOperation("Wash");
+                          }}
                           disabled={
                             !(curr_index === index && currentOperation === "Wash")
                           }
