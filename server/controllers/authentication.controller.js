@@ -28,6 +28,7 @@ const postSignUp = async (req, res) => {
 
 const postLogin = async (req, res) => {
     try {
+        console.log(req);
         const { type } = req.body;
         const user = { email: req.body.email, password: req.body.password };
         if (type == "customer") {
