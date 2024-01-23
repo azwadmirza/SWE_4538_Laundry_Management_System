@@ -22,17 +22,22 @@ export const useLogin=()=>{
       password:submitPassword,
       type:userType
     }).then((res)=>{ 
+      console.log(res);
       localStorage.setItem("token",res.data.token); 
-      if(!res.data.verified){
+      if(res.data && !res.data.verified){
         navigate("/verify");
       }
-      else{
+      else if(res.data){
         if(userType==="manager"){
           navigate("/laundry/profile");
         }
         else{
           navigate("/customer/profile");
         }
+      }
+      else{
+        setError("Server Error");
+      
       }
     }).catch((err)=>{
       setError(err.response.data.error);
