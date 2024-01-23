@@ -1,9 +1,5 @@
 FROM node:20-alpine as build
 
-# Define build arguments for environment variables
-ARG VITE_Cloudinary
-ARG VITE_SERVER
-ARG VITE_GOOGLE_CLIENT_ID
 
 # Set environment variables during the build process
 ENV VITE_Cloudinary=$VITE_Cloudinary
