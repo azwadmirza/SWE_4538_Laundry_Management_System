@@ -7,6 +7,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const SignIn = () => {
   const[location,setLocation]=useState<string>("Login");
+  console.log(import.meta.env);
   return ( 
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
   <div className="signin">

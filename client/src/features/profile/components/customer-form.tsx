@@ -2,12 +2,11 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Loader from "../../../partials/loader";
-import { callOutline, mailUnreadOutline, personCircleOutline } from "ionicons/icons";
+import { callOutline, personCircleOutline } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import ConfirmPasswordModal from "./confirm-password-modal";
 
 interface ICustomerForm{
-  email:string;
   username:string;
   setUsername:React.Dispatch<React.SetStateAction<string>>;
   password:string;
@@ -21,7 +20,7 @@ interface ICustomerForm{
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
-const ProfileFormCustomer = ({handleSubmit,email,turnOnEdit,username,setUsername,password,setPassword,phone,setPhoneNumber,isLoading,isDisabled,error}:ICustomerForm) => {
+const ProfileFormCustomer = ({handleSubmit,turnOnEdit,username,setUsername,password,setPassword,phone,setPhoneNumber,isLoading,isDisabled,error}:ICustomerForm) => {
   const [passwordVisibility,setPasswordVisibility]=useState("password");
   const [show,setShow]=useState(false);
 
@@ -57,10 +56,6 @@ const ProfileFormCustomer = ({handleSubmit,email,turnOnEdit,username,setUsername
           <IonIcon icon={callOutline}></IonIcon>
           <input type="text" pattern="[01]{2}[3-9]{1}[0-9]{8}" disabled={isDisabled} value ={phone} id="phone" onChange={(e)=>setPhoneNumber(e.target.value)} />
           {phone==="" || isDisabled || <label htmlFor="phone">Contact No.</label>}
-        </div>
-        <div className="inputbox">
-          <IonIcon icon={mailUnreadOutline}></IonIcon>
-          <input type="email" disabled={true} value ={email} id="email" />
         </div>
         {!isDisabled && (
           <Button className="btn btn-outline-dark btn-save" type="submit" disabled={isLoading}>

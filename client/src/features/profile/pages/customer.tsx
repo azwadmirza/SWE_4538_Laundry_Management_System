@@ -21,7 +21,7 @@ const  ProfilePageForCustomers = () => {
             <div className="d-flex justify-content-around h-100 mx-auto my-5 w-100" style={{alignItems : 'center'}}>
             <div className="my-3 d-none d-lg-flex"><ImageInput imageURL={String(imageURL)} setImage={setImage} /></div>
               <div className="profile-form-outer w-50 mt-5">
-                <ProfileFormCustomer handleSubmit={handleSubmit} turnOnEdit={turnOnEdit} email="mirzaazwad8@gmail.com" username={username} setUsername={setUsername} isLoading={isLoading} isDisabled={isDisabled} error={error?error:""} phone={phone} password={password} setPassword={setPassword} setPhoneNumber={setPhoneNumber}/>
+                <ProfileFormCustomer handleSubmit={handleSubmit} turnOnEdit={turnOnEdit} username={username} setUsername={setUsername} isLoading={isLoading} isDisabled={isDisabled} error={error?error:""} phone={phone} password={password} setPassword={setPassword} setPhoneNumber={setPhoneNumber}/>
               </div>
             </div>
           </div>

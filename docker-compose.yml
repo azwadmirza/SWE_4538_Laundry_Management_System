@@ -15,7 +15,7 @@ services:
     ports:
       - "3000:4173"
     env_file:
-      - ./client/.env
+      - client/.env
     depends_on:
       - server
     networks:

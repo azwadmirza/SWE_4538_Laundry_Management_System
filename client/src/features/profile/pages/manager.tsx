@@ -22,7 +22,7 @@ const  ProfilePageForLaundry = () => {
               <div className="profile-form-outer w-50 mt-5">
                 <ProfileFormLaundry handleSubmit={handleSubmit}
                 openingTime={openingTime} setOpeningTime={setOpeningTime} closingTime={closingTime} setClosingTime={setClosingTime} address={address} setAddress={setAddress}
-                turnOnEdit={turnOnEdit} email="mirzaazwad8@gmail.com" username={username} setUsername={setUsername} isLoading={isLoading} isDisabled={isDisabled} error={error?error:""} phone={phone} password={password} setPassword={setPassword} setPhoneNumber={setPhoneNumber}/>
+                turnOnEdit={turnOnEdit} username={username} setUsername={setUsername} isLoading={isLoading} isDisabled={isDisabled} error={error?error:""} phone={phone} password={password} setPassword={setPassword} setPhoneNumber={setPhoneNumber}/>
               </div>
             </div>
           </div>

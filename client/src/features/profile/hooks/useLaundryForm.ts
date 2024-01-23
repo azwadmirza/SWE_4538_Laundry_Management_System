@@ -14,7 +14,7 @@ export const useLaundryForm=()=>{
   const [imageURL,setImageURL]=useState<String>("/customerProfilePicture.jpg");
   const [image,setImage]=useState<File>();
 
-  const retrieveCustomerData=async()=>{
+  const retrieveLaundryData=async()=>{
     setIsLoading(true);
     await axios.get(import.meta.env.VITE_SERVER+"/api/manager/profile",{
       headers:{
@@ -39,7 +39,7 @@ export const useLaundryForm=()=>{
   }
 
   useEffect(()=>{
-    retrieveCustomerData();
+    retrieveLaundryData();
   },[]);
 
 
