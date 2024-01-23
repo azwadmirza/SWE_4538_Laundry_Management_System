@@ -38,16 +38,16 @@ const addPricingDetails = async (req, res) => {
 
 const updatePricingDetails = async (req, res) => {
   try {
-    const { pricingDetailsID, updatedPricingDetails } = req.body;
+    const {pricing } = req.body;
     const manager = await Manager.findById(req.user.id);
     if (!manager) {
       return res.status(404).json({ error: 'Manager not found' });
     }
-    const pricingDetail = manager.pricingDetails.id(pricingDetailsID);
+    const pricingDetail = manager.pricingDetails;
     if (!pricingDetail) {
       return res.status(404).json({ error: 'Pricing details not found' });
     }
-    pricingDetail.set(updatedPricingDetails);
+    manager.pricingDetails=pricing;
     await manager.save();
     return res.status(200).json({ message: 'Pricing details updated successfully' });
   } catch (error) {

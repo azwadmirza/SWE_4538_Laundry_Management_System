@@ -36,7 +36,7 @@ const updateManagerProfile=async(req,res)=>{
         laundry.openingTime=openingTime?openingTime:laundry.openingTime;
         laundry.closingTime=closingTime?closingTime:laundry.closingTime;
         laundry.address=address?address:laundry.address;
-        laundry.profilePicture=req.file?"/uploads/"+req.file.filename:laundry.profilePicture;
+        laundry.profilePicture=req.file?req.file.filename:laundry.profilePicture;
         await laundry.save();
         const token=await generateJwt(laundry);
         res.status(200).json({token});
@@ -52,7 +52,7 @@ const updateCustomerProfile=async(req,res)=>{
         const user=await Customer.findOne(req.user.id).select('-password');
         user.phoneNumber=phoneNumber?phoneNumber:user.phoneNumber;
         user.username=username?username:user.username;
-        user.profilePicture=req.file?"/uploads/"+req.file.filename:user.profilePicture;
+        user.profilePicture=req.file?req.file.filename:user.profilePicture;
         await user.save();
         const token=await generateJwt(user);
         res.status(200).json({token});

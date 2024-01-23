@@ -47,8 +47,7 @@ const Price = () => {
   
     const updatePricing = async () => {
         await axios
-          .put(import.meta.env.VITE_SERVER+"/api/order/update-pricing", {
-            manager_email: "manager",
+          .patch(import.meta.env.VITE_SERVER+"/api/order/update-pricing", {
             pricing: pricing,
           },{
             headers: {
@@ -173,6 +172,11 @@ const Price = () => {
                           onChange={(e) =>
                             changeValue(e.target.value, index, "Wash")
                           }
+                          onClick={() => {
+                            setIndex(index);
+                            setValue(price.Wash);
+                            setCurrentOperation("Wash");
+                          }}
                           disabled={
                             !(curr_index === index && currentOperation === "Wash")
                           }
