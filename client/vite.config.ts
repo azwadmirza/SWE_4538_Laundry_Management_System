@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy:{
-      '/api': {
+      'api': {
         target: 'http://localhost:5000',
         changeOrigin: true,
         rewrite: (path) => path.replace('api', '')
