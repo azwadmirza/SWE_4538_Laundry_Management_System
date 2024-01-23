@@ -25,7 +25,7 @@ const Price = () => {
     const [error,setError]=useState<string>("");
 
     const fetchPricing = async () => {
-      await axios.get("http://localhost:8080/api/manager/get-pricing-details",{
+      await axios.get(import.meta.env+"/api/manager/get-pricing-details",{
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + localStorage.getItem("token")
@@ -47,7 +47,7 @@ const Price = () => {
   
     const updatePricing = async () => {
         await axios
-          .put("http://localhost:8080/api/order/update-pricing", {
+          .put(import.meta.env+"/api/order/update-pricing", {
             manager_email: "manager",
             pricing: pricing,
           },{
@@ -147,7 +147,7 @@ const Price = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {pricing.map((price, index) => (
+                  {pricing && pricing.map((price, index) => (
                     <tr>
                       <td>{price.ClothType}</td>
                       <td
