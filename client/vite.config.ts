@@ -8,7 +8,9 @@ export default defineConfig({
       '/server': {
         target: 'http://localhost:5000',
         changeOrigin: true,
-        rewrite: (path) => path.replace('/server', '')
+        secure: false,      
+        ws: true,
+        rewrite: (path) => path.replace(/^\/server/, '')
       }
     }
   },
