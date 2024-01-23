@@ -12,7 +12,7 @@ const Review = () => {
             <div className="review-laundry">
                 <NavbarLaundry/>
                 <div className="reviews">
-                <AverageReview review_stars={totalReviews} laundryName={managerName} image={import.meta.env.VITE_SERVER+"/uploads/"+managerProfilePicture}/>
+                <AverageReview review_stars={totalReviews} laundryName={managerName} image={managerProfilePicture}/>
                 <ViewReviews reviews={reviews}/>
                 </div>
             </div> );

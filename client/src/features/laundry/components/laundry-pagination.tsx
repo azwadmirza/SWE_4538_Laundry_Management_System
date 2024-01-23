@@ -22,7 +22,7 @@ const PharmacyPagination = ({laundries}:LaundryArray) => {
                 <LaundryCard
                   name={laundry.username}
                   address={laundry.address}
-                  image={import.meta.env.VITE_SERVER+"/uploads/"+laundry.profilePicture}
+                  image={laundry.profilePicture}
                 />
               </Link>
             </div>

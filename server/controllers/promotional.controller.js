@@ -11,7 +11,7 @@ const promotionalUpload=async(req,res)=>{
     else{
         const promotional=new Promotional({
             managerID:req.user.id,
-            video:req.file?"/uploads/"+req.file.filename:null
+            video:req.file?"/server/uploads/"+req.file.filename:null
         });
         await promotional.save();
         res.status(200).json({msg:"Promotional video uploaded successfully"});

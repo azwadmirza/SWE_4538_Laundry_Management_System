@@ -14,7 +14,7 @@ const ViewReviews = ({reviews}:IReviewProps) => {
   return (
     <div className="table view-all-review-table">
       {reviews && reviews.map((review) => (
-        <ReviewCard image={review.customerProfilePicture} username={review.customerName} review={review.review} review_stars={review.rev_stars}></ReviewCard>
+        <ReviewCard image={import.meta.env.VITE_SERVER+"/uploads/"+review.customerProfilePicture} username={review.customerName} review={review.review} review_stars={review.rev_stars}></ReviewCard>
       ))}
     </div>
   );
