@@ -24,8 +24,11 @@ export const useSignUp=()=>{
     }
     setPassword(input);
     setSubmitPassword(CryptoJS.SHA512(input).toString());
-    if(input!==password){
+    if(input!==confirmPassword){
       setErrorConfirmPassword("Password does not match");
+    }
+    else{
+      setErrorConfirmPassword("");
     }
   }
 
@@ -33,6 +36,9 @@ export const useSignUp=()=>{
     setConfirmPassword(input);
     if(input!==password){
       setErrorConfirmPassword("Password does not match");
+    }
+    else{
+      setErrorConfirmPassword("");
     }
   }
 

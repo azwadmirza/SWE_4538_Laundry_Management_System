@@ -62,7 +62,6 @@ const ProfileFormCustomer = ({handleSubmit,email,turnOnEdit,username,setUsername
           <IonIcon icon={mailUnreadOutline}></IonIcon>
           <input type="email" disabled={true} value ={email} id="email" />
         </div>
-          {/* {!googleId && isEditing &&(<a href={"changePassword/" + user._id} style={{marginLeft:"75%"}}>Change Password</a>)} */}
         {!isDisabled && (
           <Button className="btn btn-outline-dark btn-save" type="submit" disabled={isLoading}>
             Save

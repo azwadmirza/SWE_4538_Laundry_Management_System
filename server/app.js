@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require ('path');
 const app = express ();
 app.use (express.json ());
 const bodyParser = require("body-parser");
@@ -20,10 +19,6 @@ app.use(
   })
 );
 
-const cors = require("cors");
-app.use(cors({
-  origin: '*',
-}));
 
 
 

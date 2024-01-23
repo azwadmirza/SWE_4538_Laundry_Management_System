@@ -7,6 +7,7 @@ import { useState } from "react";
 import DeleteModal from "./delete-modal";
 
 interface CustomerReviewCardProps extends ReviewCardProps{
+  _id:string|undefined;
   reviewed:boolean;
   setRevealReviewForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
