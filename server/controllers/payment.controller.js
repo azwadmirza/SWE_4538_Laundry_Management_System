@@ -5,12 +5,12 @@ const successfulPayment=async (req,res)=>{
   const orders=await Order.findById(oid);
   orders.status="Completed";
   await orders.save();
-  return res.redirect(`http://localhost:5173/customer/order?paymentStatus=success`);
+  return res.redirect(`http://localhost:3000/customer/order?paymentStatus=success`);
 }
 
 const failedPayment=(req,res)=>{
   const {oid,lid,cid}=req.query;
-  return res.redirect(`http://localhost:5173/customer/order?paymentStatus=failed&oid=${oid}`);
+  return res.redirect(`http://localhost:3000/customer/order?paymentStatus=failed&oid=${oid}`);
 }
 
 const instantPaymentNotification=(req,res)=>{
@@ -20,7 +20,7 @@ const instantPaymentNotification=(req,res)=>{
 
 const cancelPayment=(req,res)=>{
     const {oid,lid,cid}=req.query;
-    return res.redirect(`http://localhost:5173/customer/order?paymentStatus=cancelled&oid=${oid}`);
+    return res.redirect(`http://localhost:3000/customer/order?paymentStatus=cancelled&oid=${oid}`);
 }
 
 

@@ -41,7 +41,7 @@ const AddItem = ({ show, setShow, pricing, setPricing,setError }: IModalProperty
 
   const addNewItems = async () => {
     await axios
-          .post(import.meta.env+"/api/order/add-pricing", {
+          .post(import.meta.env.VITE_SERVER+"/api/order/add-pricing", {
             pricing: {
               ClothType: label,
               Wash: Number(wash),

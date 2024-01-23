@@ -4,14 +4,14 @@ const promotionalUpload=async(req,res)=>{
     try{
         const promotional=await Promotional.findOne({managerID:req.user.id});
     if(promotional){
-        promotional.video=req.file?"http://localhost:8080/uploads/"+req.file.filename:promotional.video;
+        promotional.video=req.file?"/uploads/"+req.file.filename:promotional.video;
         await promotional.save();
         res.status(200).json({msg:"Promotional video updated successfully"});
     }
     else{
         const promotional=new Promotional({
             managerID:req.user.id,
-            video:req.file?"http://localhost:8080/uploads/"+req.file.filename:null
+            video:req.file?"/uploads/"+req.file.filename:null
         });
         await promotional.save();
         res.status(200).json({msg:"Promotional video uploaded successfully"});
