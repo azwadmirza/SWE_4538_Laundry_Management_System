@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Loader from "../../../partials/loader";
-import { callOutline,homeOutline, mailUnreadOutline,mapOutline,timerOutline,timeOutline } from "ionicons/icons";
+import { callOutline,homeOutline,mapOutline,timerOutline,timeOutline } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import ConfirmPasswordModal from "./confirm-password-modal";
 interface IManagerForm{
@@ -12,7 +12,6 @@ interface IManagerForm{
   setClosingTime:React.Dispatch<React.SetStateAction<string>>;
   address:string;
   setAddress:React.Dispatch<React.SetStateAction<string>>;
-  email:string;
   username:string;
   setUsername:React.Dispatch<React.SetStateAction<string>>;
   password:string;
@@ -26,7 +25,7 @@ interface IManagerForm{
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
-const ProfileFormLaundry= ({handleSubmit,openingTime,setOpeningTime,address,setAddress, closingTime, setClosingTime,email,turnOnEdit,username,setUsername,password,setPassword,phone,setPhoneNumber,isLoading,isDisabled,error}:IManagerForm)=> {
+const ProfileFormLaundry= ({handleSubmit,openingTime,setOpeningTime,address,setAddress, closingTime, setClosingTime,turnOnEdit,username,setUsername,password,setPassword,phone,setPhoneNumber,isLoading,isDisabled,error}:IManagerForm)=> {
   const [passwordVisibility,setPasswordVisibility]=useState("password");
   const [show,setShow]=useState(false);
 
@@ -96,10 +95,6 @@ const ProfileFormLaundry= ({handleSubmit,openingTime,setOpeningTime,address,setA
                 />
                 {address==="" || isDisabled || (<label htmlFor="">Address</label>)}
               </div>
-       <div className="inputbox">
-          <IonIcon icon={mailUnreadOutline}></IonIcon>
-          <input type="email" disabled={true} value ={email} id="email" />
-        </div>
       {!isDisabled && (
         <Button className="btn btn-outline-dark btn-save" type="submit" disabled={isLoading}>
           Save
