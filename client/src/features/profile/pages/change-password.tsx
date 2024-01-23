@@ -1,8 +1,4 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
-import { InputGroup } from "react-bootstrap";
-import { EyeFill, EyeSlashFill } from "react-bootstrap-icons";
 import { useState } from "react";
 import '../assets/css/change-password.css';
 import { useNavigate, useParams } from "react-router-dom";

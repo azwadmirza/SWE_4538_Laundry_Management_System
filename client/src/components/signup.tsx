@@ -5,7 +5,6 @@ import {
   mailOutline,
   lockClosedOutline,
   personCircleOutline,
-  logoGoogle,
   lockOpenOutline,
   homeOutline
 } from "ionicons/icons";
@@ -19,7 +18,6 @@ interface SignUpProps {
 }
 
 const SignUp = ({ changeState }: SignUpProps) => {
-  const [show, setShow] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const {
     isDisabled,

@@ -1,7 +1,6 @@
 import { IonIcon } from "@ionic/react";
 import {
   callOutline,
-  homeOutline,
   timeOutline,
   timerOutline,
   mapOutline,

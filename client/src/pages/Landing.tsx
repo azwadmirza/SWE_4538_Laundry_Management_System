@@ -1,4 +1,3 @@
-import { useState } from "react";
 import NavbarLanding from "../partials/navbarLanding";
 import '../assets/css/landing.css';
 import { arrowForwardCircleOutline } from "ionicons/icons";
@@ -6,7 +5,6 @@ import { IonIcon } from "@ionic/react";
 import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
-  const[location,setLocation]=useState<string>("Login");
   const navigate=useNavigate();
   return ( 
   <div className="landing">

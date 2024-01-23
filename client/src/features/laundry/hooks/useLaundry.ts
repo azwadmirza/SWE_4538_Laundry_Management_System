@@ -1,5 +1,4 @@
 import {useState,useEffect} from 'react';
-import LaundryArrayComponent from '../assets/ts/laundry-array';
 import axios from 'axios';
 
 export const useLaundry=()=>{
@@ -7,7 +6,6 @@ export const useLaundry=()=>{
   const [searchTerm,setSearchTerm]=useState<string>();
   const [filteredLaundry,setFilteredLaundry]=useState<any[] | undefined>();
   const [isLoading,setIsLoading]=useState(false);
-  const [searchCriteria,setSearchCriteria]=useState("");
 
   const retrieveLaundries=async()=>{
     setIsLoading(true);

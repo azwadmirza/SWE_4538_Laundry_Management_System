@@ -1,5 +1,3 @@
-import { IonIcon } from "@ionic/react";
-import { addCircleOutline } from "ionicons/icons";
 import { Card } from "react-bootstrap";
 import StarsRating from "react-star-rate";
 
