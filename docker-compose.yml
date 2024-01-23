@@ -1,4 +1,4 @@
-version: '4.0.1'
+version: '3.8'
 
 services:
   server:
@@ -6,7 +6,7 @@ services:
     ports:
       - "5000:5000"
     env_file:
-    - ./server/.env
+      - ./server/.env
     networks:
       - washify
 
@@ -15,11 +15,12 @@ services:
     ports:
       - "3000:4173"
     env_file:
-    - ./client/.env
+      - ./client/.env
+    depends_on:
+      - server
     networks:
       - washify
 
 networks:
   washify:
     driver: bridge
-     
