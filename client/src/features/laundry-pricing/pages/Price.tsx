@@ -31,7 +31,7 @@ const Price = () => {
           "Authorization": "Bearer " + localStorage.getItem("token")
         }
       }).then((res)=>{
-        setPricing(res.data.pricingDetails);
+        setPricing(res.data.pricingDetails?res.data.pricingDetails:[]);
         setLoading(false);
       }
       ).catch((err)=>{
