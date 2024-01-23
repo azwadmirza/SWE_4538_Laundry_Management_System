@@ -11,5 +11,6 @@ router.get('/api/review/customer/:id',isCustomer, reviewController.getCustomerRe
 router.get('/api/reviews/other-customers/:id',isCustomer, reviewController.getOtherCustomerReviews);
 router.get('/api/reviews/manager',isManager, reviewController.getManagerReviews);
 router.get('/api/reviewer',isCustomer,reviewController.getReviewerInformation);
+router.delete('/api/review/:id',isCustomer,reviewController.deleteReview);
 
 module.exports = router;

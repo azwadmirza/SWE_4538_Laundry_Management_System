@@ -4,14 +4,14 @@ import { Card } from "react-bootstrap";
 import StarsRating from "react-star-rate";
 
 interface AverageReviewProps{
+  _id:string|undefined;
   image:string|undefined;
   laundryName:string|undefined;
-  disabled:boolean;
   review_stars:number;
   setRevealReviewForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AverageReview = ({disabled,review_stars,image,laundryName,setRevealReviewForm}:AverageReviewProps) => {
+const AverageReview = ({_id,review_stars,image,laundryName,setRevealReviewForm}:AverageReviewProps) => {
   return ( 
     <Card className="card-review">
       <Card.Header className="card-header-average-review"><img
@@ -20,10 +20,9 @@ const AverageReview = ({disabled,review_stars,image,laundryName,setRevealReviewF
           height="40px"
           alt="profile picture"
           className="personal-review-image"
-        ></img>{laundryName}
+        ></img>{laundryName}:{_id}
         <button
         className="edit-average-review-btn"
-        disabled={disabled}
         onClick={() => setRevealReviewForm(true)}
       >
         <IonIcon icon={addCircleOutline}></IonIcon><span className="mobile-disappear">Create</span>

@@ -3,12 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "http://localhost:8080",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview --host"
   },
   "dependencies": {
     "@coreui/react": "^4.11.0",
@@ -35,6 +34,7 @@
     "react-router-dom": "^6.18.0",
     "react-star-rate": "^0.2.0",
     "react18-input-otp": "^1.1.4",
+    "serve": "^14.2.1",
     "socket.io-client": "^4.7.2",
     "use-places-autocomplete": "^4.0.1"
   },

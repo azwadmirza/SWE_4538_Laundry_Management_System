@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import NavbarCustomer from '../../../partials/navbarCustomer';
 import ProfileFormCustomer from '../components/customer-form';
 import ImageInput from '../../../partials/imageInput';

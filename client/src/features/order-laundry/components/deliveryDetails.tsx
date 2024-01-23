@@ -1,6 +1,6 @@
 import { IonIcon } from "@ionic/react";
 import { mailUnreadOutline, personCircleOutline } from "ionicons/icons";
-import { faMapMarkedAlt, faMarker, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface DeliveryDetails{

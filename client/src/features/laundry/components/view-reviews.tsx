@@ -13,7 +13,7 @@ interface IReviewProps{
 const ViewReviews = ({reviews}:IReviewProps) => {
   return (
     <div className="table view-all-review-table">
-      {reviews && reviews.map((review, index) => (
+      {reviews && reviews.map((review) => (
         <ReviewCard image={review.customerProfilePicture} username={review.customerName} review={review.review} review_stars={review.rev_stars}></ReviewCard>
       ))}
     </div>

@@ -94,7 +94,7 @@ const ReviewForm = ({reviewed,revealForm,setRevealReviewForm }: ReviewFormProps)
         headers:{
           'Authorization':`Bearer ${localStorage.getItem('token')}`,
         }
-      }).then(()=>setRevealReviewForm(false)).catch((error)=>{
+      }).then(()=>{setRevealReviewForm(false);window.location.reload()}).catch((error)=>{
         console.log(error);
       })
     }
@@ -107,7 +107,7 @@ const ReviewForm = ({reviewed,revealForm,setRevealReviewForm }: ReviewFormProps)
         headers:{
           'Authorization':`Bearer ${localStorage.getItem('token')}`,
         }
-      }).then(()=>setRevealReviewForm(false)).catch((error)=>{
+      }).then(()=>{setRevealReviewForm(false);window.location.reload()}).catch((error)=>{
         console.log(error);
       })
     }

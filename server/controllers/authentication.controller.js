@@ -174,10 +174,10 @@ const verifyForgotOTP=async(req,res)=>{
 
 const resetPassword=async(req,res)=>{
     try{
-        const {email,role}=req.params;
+        const role=req.user.role;
         const { password } = req.body;
         if(role==="customer"){
-            const Customer=await customer.findOne({email});
+            const Customer=await customer.findById(req.user.id);
             if(Customer.googleId){
                 return res.status(400).json({ error: "Cannot reset password, oAuth used" });
             }
@@ -187,7 +187,7 @@ const resetPassword=async(req,res)=>{
             return res.status(200).json({ success: true });
         }
         else if(role==="manager"){
-            const Manager=await manager.findOne({email});
+            const Manager=await manager.findById(req.user.id);
             if(Manager.googleId){
                 return res.status(400).json({ error: "Cannot reset password, oAuth used" });
             }

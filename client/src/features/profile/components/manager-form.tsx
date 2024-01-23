@@ -80,6 +80,7 @@ const ProfileFormLaundry= ({handleSubmit,openingTime,setOpeningTime,address,setA
                   id="closingTime"
                   value={closingTime}
                   onChange={(e) => setClosingTime(e.target.value)}
+                  min={openingTime}
                 />
                 {closingTime==="" || isDisabled || (<label htmlFor="closingTime">Closing Time</label>)}
               </div>
@@ -99,7 +100,6 @@ const ProfileFormLaundry= ({handleSubmit,openingTime,setOpeningTime,address,setA
           <IonIcon icon={mailUnreadOutline}></IonIcon>
           <input type="email" disabled={true} value ={email} id="email" />
         </div>
-        {/* {!googleId && isEditing &&(<a href={"changePassword/" + user._id} style={{marginLeft:"75%"}}>Change Password</a>)} */}
       {!isDisabled && (
         <Button className="btn btn-outline-dark btn-save" type="submit" disabled={isLoading}>
           Save

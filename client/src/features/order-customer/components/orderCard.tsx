@@ -6,8 +6,6 @@ import { useOrderCard } from '../hooks/useOrderCard';
 import { IonIcon } from '@ionic/react';
 import { calendarNumberOutline } from 'ionicons/icons';
 import OrderDetails from './orderDetails';
-import GoToBillingModal from './goToBilling';
-import axios from 'axios';
 
 interface OrderCardProps{
   order:orders;

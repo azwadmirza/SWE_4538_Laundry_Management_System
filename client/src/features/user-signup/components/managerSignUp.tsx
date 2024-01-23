@@ -1,7 +1,6 @@
 import { IonIcon } from "@ionic/react";
 import {
   callOutline,
-  homeOutline,
   timeOutline,
   timerOutline,
   mapOutline,
@@ -80,6 +79,7 @@ const ManagerSignUp = () => {
                     id="closingTime"
                     value={closing_time}
                     onChange={(e) => setClosingTime(e.target.value)}
+                    min={opening_time}
                   />
                   <label htmlFor="closingTime">Closing Time</label>
                 </div>

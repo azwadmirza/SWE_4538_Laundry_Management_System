@@ -6,7 +6,6 @@ import Landing from "./pages/Landing";
 import SignIn from "./pages/SignIn";
 import User from "./features/user-signup/pages/User";
 import Verification from "./features/verification/pages/Verification";
-import ChangePassword from "./features/profile/pages/change-password";
 import ProfilePageForCustomers from "./features/profile/pages/customer";
 import ProfilePageForLaundry from "./features/profile/pages/manager";
 import Laundry from "./features/laundry/pages/laundry";
@@ -30,7 +29,6 @@ function App() {
           />
           <Route path="/manager/signup" element={<User userType="manager" />} />
           <Route path="/verify" element={<Verification />} />
-          <Route path="/change-password/:type" element={<ChangePassword />} />
           <Route
             path="/customer/profile"
             element={<ProfilePageForCustomers />}
